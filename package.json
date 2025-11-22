@@ -1,0 +1,14 @@
+{
+  "name": "scme-prime-starter",
+  "version": "0.8.0",
+  "description": "SCME PRIME v8 starter pack (prototype)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "mock-server": "node api/mock-server.js",
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
