@@ -1,23 +1,21 @@
-# SCME PRIME — v8 Starter Pack
+SCME PRIME v9 — Basic UI/UX scaffold
+-----------------------------------
+This scaffold contains simple Next.js-compatible React components, pages,
+a basic globals.css, mock data, and PR templates to jumpstart UI/UX work.
 
-This archive contains the starter files to run SCME PRIME locally (prototype).
+Usage:
+- Copy the files into your Next.js project (pages/, components/, styles/, src/)
+- Or unzip and inspect the files, then commit to your repo.
 
-Files included:
-- src/lib/scmeStateMachine.ts
-- src/lib/SCMEProvider.tsx
-- src/components/VisualStudio.tsx
-- api/mock-server.js
-- package.json
-- README.md (this file)
-
-Quickstart (local):
-1. Install dependencies (Node >=18, npm):
-   npm install
-2. Start mock API:
-   node api/mock-server.js
-3. Start dev server (if you integrate into Next.js/Vite app):
-   npm run dev
-
-Notes:
-- These are prototype files. You can copy them into a Next.js or Vite React project (TypeScript).
-- For full app integration, see the earlier conversation for the complete component set and SCMEPrimeOS patch.
+Generated files:
+- components/Header.js
+- components/Sidebar.js
+- components/Card.js
+- pages/_app.js
+- pages/dashboard.js
+- pages/mutation-lab.js
+- pages/story-creator.js
+- styles/globals.css
+- src/mocks/sample-data.js
+- PR_TEMPLATE.md
+- TASKLIST.md

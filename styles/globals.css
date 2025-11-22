@@ -1,10 +1,33 @@
-html, body, #__next {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #0f172a;
-  background: #ffffff;
+:root {
+  --bg: #0f1724;
+  --panel: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #6ee7b7;
 }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; }
+html,body,#__next { height:100%; margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: linear-gradient(180deg,#071027 0%, #0f1724 100%); color: #e6eef6; }
+.container { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem; max-width:1200px; margin:0 auto; }
+.sp-header { border-bottom:1px solid rgba(255,255,255,0.03); background:transparent; position:sticky; top:0; z-index:40; }
+.sp-header .brand a { font-weight:700; letter-spacing:0.6px; color:var(--accent); text-decoration:none; }
+.sp-header .nav a { margin-left:1rem; color:var(--muted); text-decoration:none; }
+
+.sp-layout { display:flex; min-height:calc(100vh - 64px); }
+.sp-sidebar { width:220px; background:rgba(255,255,255,0.02); padding:1rem; border-right:1px solid rgba(255,255,255,0.02); }
+.sp-sidebar.closed { width:72px; }
+.sp-main { flex:1; padding:1.5rem; }
+
+.hero { margin-bottom:1rem; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+.sp-card { background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:1rem; border-radius:8px; box-shadow:0 6px 24px rgba(2,6,23,0.6); }
+.sp-card h3 { margin-top:0; margin-bottom:0.5rem; }
+.controls { display:flex; gap:0.5rem; margin-bottom:1rem; }
+input, textarea { width:100%; padding:0.5rem; background:transparent; border:1px solid rgba(255,255,255,0.04); color:inherit; border-radius:6px; min-height:40px; }
+
+/* Story creator */
+.story-creator { display:grid; grid-template-columns:280px 1fr; gap:1rem; }
+.outline textarea { min-height:300px; }
+.editor textarea { min-height:200px; width:100%; }
+
+@media (max-width:800px) {
+  .sp-sidebar { display:none; }
+  .story-creator { grid-template-columns:1fr; }
+}

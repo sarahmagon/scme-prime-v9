@@ -1,17 +1,24 @@
+import { useState } from 'react';
+import Card from '../components/Card';
+
 export default function StoryCreator() {
+  const [outline, setOutline] = useState('');
+  const [draft, setDraft] = useState('');
+
   return (
-    <main style={{fontFamily: "Inter, system-ui", padding:40, maxWidth:1100, margin:"0 auto"}}>
-      <h1>Story Creator</h1>
-      <p>Outline, draft and revise with AI-assisted modules.</p>
-      <section style={{marginTop:24}}>
-        <label>Title</label>
-        <input placeholder="Story title..." style={{width:"100%", padding:8, marginTop:8}}/>
-        <label style={{display:"block", marginTop:12}}>Outline</label>
-        <textarea placeholder="Short outline..." style={{width:"100%", minHeight:120, padding:8}}/>
-        <div style={{marginTop:12}}>
-          <button style={{padding:"8px 12px", borderRadius:8}}>Generate Draft</button>
-        </div>
-      </section>
-    </main>
-  )
+    <section className="story-creator">
+      <aside className="outline">
+        <h2>Outline</h2>
+        <textarea value={outline} onChange={e => setOutline(e.target.value)} placeholder="Write an outline..." />
+      </aside>
+
+      <div className="editor">
+        <h2>Draft</h2>
+        <textarea value={draft} onChange={e => setDraft(e.target.value)} placeholder="Write draft..." />
+        <Card title="Preview">
+          <div dangerouslySetInnerHTML={{__html: draft.replace(/\n/g, '<br/>')}} />
+        </Card>
+      </div>
+    </section>
+  );
 }
