@@ -1,19 +1,31 @@
+import { useState } from 'react';
+import Card from '../components/Card';
+import mock from '../src/mocks/sample-data';
+
 export default function MutationLab() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState(mock.mutations.slice(0,4));
+
+  function run() {
+    // simple client-side filter (placeholder for AI integration)
+    setResults(mock.mutations.filter(m => m.title.toLowerCase().includes(query.toLowerCase())));
+  }
+
   return (
-    <main style={{fontFamily: "Inter, system-ui", padding:40, maxWidth:1100, margin:"0 auto"}}>
+    <section>
       <h1>Mutation Lab</h1>
-      <p>Generate mutation ideas and transform prompts.</p>
-      <section style={{marginTop:24}}>
-        <label>Seed idea</label>
-        <input placeholder="A heroic archaeologist..." style={{width:"100%", padding:8, marginTop:8}}/>
-        <div style={{marginTop:12}}> 
-          <button style={{padding:"8px 12px", borderRadius:8}}>Generate Mutations</button>
-        </div>
-      </section>
-      <section style={{marginTop:24}}>
-        <h3>Results</h3>
-        <div id="results" style={{marginTop:8}}>- No results yet -</div>
-      </section>
-    </main>
-  )
+      <div className="controls">
+        <input aria-label="mutation query" placeholder="Search mutation..." value={query} onChange={e => setQuery(e.target.value)} />
+        <button onClick={run}>Run</button>
+      </div>
+
+      <div className="grid">
+        {results.map((m,i) => (
+          <Card key={i} title={m.title}>
+            <p>{m.description}</p>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
 }
